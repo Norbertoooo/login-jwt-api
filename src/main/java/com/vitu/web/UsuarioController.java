@@ -2,6 +2,7 @@ package com.vitu.web;
 
 import com.vitu.domain.Usuario;
 import com.vitu.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "basic-security")
 @RequestMapping("/api/v1/usuario")
 public class UsuarioController {
 

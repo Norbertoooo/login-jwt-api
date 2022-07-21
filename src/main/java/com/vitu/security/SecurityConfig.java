@@ -6,12 +6,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -30,9 +32,12 @@ public class SecurityConfig {
                 .authorizeRequests()
                 //.antMatchers(HttpMethod.POST, "/api/v1/usuario/admin").permitAll()
                 //.antMatchers(HttpMethod.POST, "/api/v1/usuario").hasRole("ADMINISTRADOR")
+                .antMatchers("/swagger-ui/index.html","/swagger-ui/**").permitAll()
+                .antMatchers("/v3/api-docs", "/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .csrf().disable();
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();
     }
 
