@@ -1,0 +1,2 @@
+INSERT INTO papel (id, nome) VALUES (1, 'ROLE_ADMINISTRADOR');
+INSERT INTO papel (id, nome) VALUES (2, 'ROLE_USUARIO');

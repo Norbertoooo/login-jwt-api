@@ -1,0 +1,2 @@
+CREATE TABLE usuario (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY , email VARCHAR(50), senha VARCHAR(100), papel_id INT,
+CONSTRAINT fk_papel FOREIGN KEY(papel_id) REFERENCES papel(id));

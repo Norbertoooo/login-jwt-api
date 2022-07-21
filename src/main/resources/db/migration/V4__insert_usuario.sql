@@ -1,0 +1,1 @@
+INSERT INTO USUARIO(id, email, senha, papel_id) VALUES (1, 'vitor', '$2a$10$YcUSqC86bQLgtLmZiDzhHOirkI4V9AaIi/IXbINdtLJtgyh2y9du2', 1);
